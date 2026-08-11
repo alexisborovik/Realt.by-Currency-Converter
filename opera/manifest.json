@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Realt.by Currency Converter",
+  "version": "1.5",
+  "description": "Автоматически конвертирует цены на realt.by в USD по актуальному курсу Нацбанка РБ при каждой загрузке страницы",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.realt.by/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
